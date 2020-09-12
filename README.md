@@ -1,2 +1,3 @@
-# JS-Calculator-
+# JS-Calculator
+
 Primitive operation calculator using js 
