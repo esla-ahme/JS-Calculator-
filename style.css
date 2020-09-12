@@ -9,7 +9,7 @@ body{
   place-items: center;
 background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);  width: 100vw;
   height: 100vh;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: monospace;
   padding: 5px;
   overflow: hidden;
   
@@ -26,8 +26,9 @@ background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);  width: 100
 .screen{
   width: 100%;
   color: white;
-  padding: 20px 5px;
+  padding: 20px 10px;
   text-align: right;
+  font-size: 1.2em;
 
 }
 .buttons{
