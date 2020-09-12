@@ -40,6 +40,7 @@ background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);  width: 100
   border: 1px solid #000;
   font-size:1.1em ;
   outline: none;
+  background: cornsilk;
 }
 .btn:hover{
   filter: brightness(120%) saturate(120%);
