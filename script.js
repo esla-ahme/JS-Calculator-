@@ -1,14 +1,18 @@
 /* Simple Calculator App */
+// selectors
 const calcScreen = document.querySelector(".screen");
 const buttons = document.querySelector(".buttons");
 
+//initialize variablse 
 let screen = "0", mem = "";
 let operation = "";
 
 buttons.addEventListener('click', (event) => {
+  //get pressed button info
   let pressed = event.target.innerText;
   const pressedType = event.target.classList;
 
+  //handel operations
   if (pressedType[1] == 'op') {
     /* in case of equal pressed */
     if (pressed == "=") {
