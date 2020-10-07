@@ -18,7 +18,7 @@ buttons.addEventListener('click', (event) => {
     if (pressed == "=") {
       //make sure opertion has been pressed 
       if (operation !== undefined && mem.length != 0) {
-        screen = eval(mem + operation + screen);
+        screen = performCalculation(mem, operation, screen);
         mem = "";
       }
 
@@ -26,16 +26,33 @@ buttons.addEventListener('click', (event) => {
 
     /* if operation pressed */
     else {
-      // handle division and multiplication
+
+      // handle division, multiplication, power of and square root
       pressed = (pressed == "×") ? "*" : pressed;
       pressed = (pressed == "÷") ? "/" : pressed;
+      pressed = (pressed == "Xy") ? "pow" : pressed;
+      pressed = (pressed == "√") ? "sq" : pressed;
 
-      /* if memory not empty */
+      /**
+       * If mem already contains a result
+       * e.g if user wants to perform...
+       * 3 + 3 +
+       * the second hit of the + would trigger this
+       * scenario as already a previous operation
+       * has occurred.
+       */
       if (mem !== "") {
-        mem = eval(mem + operation + screen);
+        mem = performCalculation(mem, operation, screen);
       }
 
-      /* in case memory is empty */
+      /**
+       * In the case that mem is empty
+       * this would trigger the first time 
+       * the user uses an operation
+       * e.g. 3 +
+       * the + would trigger this scenario
+       * and only once in this equation
+       */
       else {
         mem = screen;
       }
@@ -63,3 +80,13 @@ buttons.addEventListener('click', (event) => {
   }
   calcScreen.innerText = screen;
 });
+
+function performCalculation(memoryValue, operation, screenValue) {
+  if (operation == "pow") {
+    return Math.pow(memoryValue, screenValue);
+  } else if (operation == "sq") {
+    return Math.sqrt(memoryValue);
+  } else {
+    return eval(memoryValue + operation + screenValue);
+  }
+}
